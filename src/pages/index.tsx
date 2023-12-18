@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 
