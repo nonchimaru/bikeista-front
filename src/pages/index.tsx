@@ -7,6 +7,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Typography,
 } from "@mui/material";
 import Link from "next/link";
 
@@ -24,7 +25,12 @@ export default function Home() {
           variant="square"
           sx={{ width: "10%", height: "10%" }}
         />
-        Welcome to BIKEISTA
+        <Box>
+          <Typography variant="h4">
+            Welcome to <br />
+          </Typography>
+          <Typography variant="h2">BIKEISTA</Typography>
+        </Box>
         <Box
           sx={{
             width: "100%",
