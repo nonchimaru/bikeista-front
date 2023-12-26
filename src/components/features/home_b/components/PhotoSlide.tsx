@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 
 const sliderSettings = {
   autoplay: true, // スライドを自動再生
-  autoplaySpeed: 3000,
+  autoplaySpeed: 4000,
   infinite: true, // コンテンツループ
   arrows: false, // 「前」「次」のスライドを操作する矢印を非表示
   speed: 500, // スライドアニメーションのスピード
@@ -21,12 +21,12 @@ const carouselItems = [
 ];
 
 const sliderContainerStyle = {
-  width: "300px", // 任意の幅に調整
+  width: "480px", // 任意の幅に調整
   margin: "0 auto", // 中央寄せにする場合
 };
 
 /**
- * ロゴを表示させるコンポーネント
+ * 画像スライドを表示させるコンポーネント
  */
 export const PhotoSlide: React.FC = ({}) => {
   return (

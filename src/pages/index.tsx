@@ -26,20 +26,30 @@ const Home: NextPage = () => {
         <link rel="stylesheet" href="./style.css" />
       </Head>
       <main>
-        <LogoBikeista />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <LogoBikeista />
+        </Box>
         <Box style={{ display: "flex" }}>
-          <Box style={{ marginLeft: "5%" }}>
+          <Box style={{ marginLeft: "10%" }}>
             <Typography variant="h3" className={M_PLUS_Rounded_1c500.className}>
               Welcome to <br />
             </Typography>
             <Typography variant="h1" className={Kaisei_Decol700.className}>
               BIKEISTA
             </Typography>
-            <Box style={{ marginTop: "2%" }}>
+            <Box style={{ marginTop: "6%" }}>
               <ItemList />
             </Box>
           </Box>
-          <PhotoSlide />
+          <Box style={{ paddingTop: "8%", paddingLeft: "18%" }}>
+            <PhotoSlide />
+          </Box>
         </Box>
       </main>
     </>

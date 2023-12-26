@@ -15,8 +15,8 @@ type LogoBikeistaProps = {
  * ロゴを表示させるコンポーネント
  */
 export const LogoBikeista: React.FC<LogoBikeistaProps> = ({
-  width = "10%",
-  height = "10%",
+  width = "13%",
+  height = "13%",
 }) => {
   return (
     <Avatar
