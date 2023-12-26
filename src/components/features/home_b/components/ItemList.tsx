@@ -48,7 +48,10 @@ export const ItemList: React.FC = ({}) => {
           </Link>
         </ListItem>
         <ListItem disablePadding>
-          <Link href="/" style={{ color: "black", textDecoration: "none" }}>
+          <Link
+            href="/my_garage"
+            style={{ color: "black", textDecoration: "none" }}
+          >
             <ListItemButton>
               <ListItemText primary="マイガレージ" />
             </ListItemButton>
