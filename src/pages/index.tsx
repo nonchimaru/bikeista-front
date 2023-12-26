@@ -47,7 +47,7 @@ const Home: NextPage = () => {
               <ItemList />
             </Box>
           </Box>
-          <Box style={{ paddingTop: "8%", paddingLeft: "18%" }}>
+          <Box style={{ paddingTop: "6%", paddingLeft: "18%" }}>
             <PhotoSlide />
           </Box>
         </Box>

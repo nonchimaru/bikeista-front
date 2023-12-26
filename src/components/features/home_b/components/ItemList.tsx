@@ -20,28 +20,40 @@ export const ItemList: React.FC = ({}) => {
     >
       <List>
         <ListItem disablePadding>
-          <Link href="/" style={{ color: "black", textDecoration: "none" }}>
+          <Link
+            href="/favorite_bike_alliance"
+            style={{ color: "black", textDecoration: "none" }}
+          >
             <ListItemButton>
               <ListItemText primary="愛車同盟" />
             </ListItemButton>
           </Link>
         </ListItem>
         <ListItem disablePadding>
-          <Link href="/" style={{ color: "black", textDecoration: "none" }}>
+          <Link
+            href="/pic_post"
+            style={{ color: "black", textDecoration: "none" }}
+          >
             <ListItemButton>
               <ListItemText primary="ピク投稿" />
             </ListItemButton>
           </Link>
         </ListItem>
         <ListItem disablePadding>
-          <Link href="/" style={{ color: "black", textDecoration: "none" }}>
+          <Link
+            href="/letter_post"
+            style={{ color: "black", textDecoration: "none" }}
+          >
             <ListItemButton>
               <ListItemText primary="レタ投稿" />
             </ListItemButton>
           </Link>
         </ListItem>
         <ListItem disablePadding>
-          <Link href="/" style={{ color: "black", textDecoration: "none" }}>
+          <Link
+            href="/message"
+            style={{ color: "black", textDecoration: "none" }}
+          >
             <ListItemButton>
               <ListItemText primary="メッセージ" />
             </ListItemButton>
