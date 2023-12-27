@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import { NextPage } from "next";
 import { Kaisei_Decol, M_PLUS_Rounded_1c } from "next/font/google";
 import Image from "next/image";
@@ -28,6 +28,24 @@ const Error: NextPage = () => {
             position: "relative", // 親要素を相対位置に
           }}
         >
+          <Box
+            sx={{
+              position: "absolute", // 画像を絶対位置に
+              top: "0", // 上端に配置
+              left: "0", // 左端に配置
+              marginTop: "85px", // テキストとの間隔
+              marginLeft: "40px", // テキストとの間隔
+            }}
+          >
+            <Link href="/">
+              <Image
+                src="/OriginalOnTransparent.png"
+                width={90}
+                height={90}
+                alt="/OriginalOnTransparent.png"
+              />
+            </Link>
+          </Box>
           <Box
             sx={{
               display: "flex",
