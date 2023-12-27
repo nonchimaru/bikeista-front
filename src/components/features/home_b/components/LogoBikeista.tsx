@@ -15,13 +15,13 @@ type LogoBikeistaProps = {
  * ロゴを表示させるコンポーネント
  */
 export const LogoBikeista: React.FC<LogoBikeistaProps> = ({
-  width = "13%",
-  height = "13%",
+  width = "10%",
+  height = "10%",
 }) => {
   return (
     <Avatar
       alt="Logo"
-      src="/logo_2.jpg"
+      src="/OriginalOnTransparent.png"
       variant="rounded"
       sx={{ width, height }}
     />
