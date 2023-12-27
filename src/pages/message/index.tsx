@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { NextPage } from "next";
 import { LogoBikeistaButton } from "@/components/elements/LogoBikeistaButton";
-import { Kaisei_Decol, M_PLUS_Rounded_1c } from "next/font/google";
 import { CommingSoonPages } from "@/components/elements/CommingSoonPages";
 
 const Message: NextPage = () => {

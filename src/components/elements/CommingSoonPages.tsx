@@ -1,6 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import Link from "next/link";
-import Image from "next/image";
 import { Kaisei_Decol, M_PLUS_Rounded_1c } from "next/font/google";
 
 const Kaisei_Decol700 = Kaisei_Decol({
