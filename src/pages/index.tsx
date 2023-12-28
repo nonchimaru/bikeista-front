@@ -2,9 +2,9 @@ import { NextPage } from "next";
 import Head from "next/head";
 import * as React from "react";
 import { Box, Typography } from "@mui/material";
-import { LogoBikeista } from "@/components/features/home_b/components/LogoBikeista";
 import { Kaisei_Decol, M_PLUS_Rounded_1c } from "next/font/google";
 import { ItemList } from "@/components/features/home_b/components/ItemList";
+import { LogoBikeistaButton } from "@/components/elements/LogoBikeistaButton";
 import { PhotoSlide } from "@/components/features/home_b/components/PhotoSlide";
 
 const Kaisei_Decol700 = Kaisei_Decol({
@@ -33,7 +33,7 @@ const Home: NextPage = () => {
             alignItems: "center",
           }}
         >
-          <LogoBikeista />
+          <LogoBikeistaButton />
         </Box>
         <Box style={{ display: "flex" }}>
           <Box style={{ marginLeft: "10%" }}>
