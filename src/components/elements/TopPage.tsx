@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import { ItemList } from "../features/home_b/components/ItemList";
-import { PhotoSlide } from "../features/home_b/components/PhotoSlide";
+import { ItemList } from "../features/Top/components/ItemList";
+import { PhotoSlide } from "../features/Top/components/PhotoSlide";
 import { Kaisei_Decol, M_PLUS_Rounded_1c } from "next/font/google";
 
 const Kaisei_Decol700 = Kaisei_Decol({
