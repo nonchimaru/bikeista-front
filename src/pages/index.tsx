@@ -1,21 +1,9 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import * as React from "react";
-import { Box, Typography } from "@mui/material";
-import { Kaisei_Decol, M_PLUS_Rounded_1c } from "next/font/google";
-import { ItemList } from "@/components/features/home_b/components/ItemList";
 import { LogoBikeistaButton } from "@/components/elements/LogoBikeistaButton";
-import { PhotoSlide } from "@/components/features/home_b/components/PhotoSlide";
-
-const Kaisei_Decol700 = Kaisei_Decol({
-  weight: "700",
-  preload: false,
-});
-
-const M_PLUS_Rounded_1c500 = M_PLUS_Rounded_1c({
-  weight: "500",
-  preload: false,
-});
+import { TopPages } from "@/components/elements/TopPage";
+import { Box } from "@mui/material";
 
 const Home: NextPage = () => {
   return (
@@ -26,30 +14,9 @@ const Home: NextPage = () => {
         <link rel="stylesheet" href="./style.css" />
       </Head>
       <main>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <LogoBikeistaButton />
-        </Box>
-        <Box style={{ display: "flex" }}>
-          <Box style={{ marginLeft: "10%" }}>
-            <Typography variant="h3" className={M_PLUS_Rounded_1c500.className}>
-              Welcome to <br />
-            </Typography>
-            <Typography variant="h1" className={Kaisei_Decol700.className}>
-              BIKEISTA
-            </Typography>
-            <Box style={{ marginTop: "6%" }}>
-              <ItemList />
-            </Box>
-          </Box>
-          <Box style={{ paddingTop: "6%", paddingLeft: "18%" }}>
-            <PhotoSlide />
-          </Box>
+        <LogoBikeistaButton />
+        <Box style={{ marginTop: "4%" }}>
+          <TopPages />
         </Box>
       </main>
     </>

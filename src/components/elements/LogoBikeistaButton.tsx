@@ -21,13 +21,15 @@ export const LogoBikeistaButton: React.FC<LogoBikeistaButtonProps> = ({
   height = 90,
 }) => {
   return (
-    <Link href="/">
-      <Image
-        src="/OriginalOnTransparent.png"
-        width={width}
-        height={height}
-        alt="/OriginalOnTransparent.png"
-      />
-    </Link>
+    <Box sx={{ marginTop: "2%", marginLeft: "2%" }}>
+      <Link href="/">
+        <Image
+          src="/OriginalOnTransparent.png"
+          width={width}
+          height={height}
+          alt="/OriginalOnTransparent.png"
+        />
+      </Link>
+    </Box>
   );
 };
