@@ -23,8 +23,6 @@ export const CommingSoonPages: React.FC = ({}) => {
         justifyContent: "center",
         flexDirection: "row",
         alignItems: "center",
-        height: "100vh",
-        marginTop: "-20px",
         overflow: "hidden", // ページ全体にスクロールが生じないように設定
       }}
     >
