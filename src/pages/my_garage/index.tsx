@@ -1,13 +1,16 @@
-import { LogoBikeistaButton } from "@/components/elements/LogoBikeistaButton";
-import { Introduction } from "@/components/features/My_Garage/components/Introduction";
-import { ProfileIcon } from "@/components/features/My_Garage/components/ProfileIcon";
+import { BikeistaBottenItemList } from "@/components/elements/BikeistaBottenItemList";
+import Page from "@/components/features/My_Garage/components/pages";
+import { Box } from "@mui/material";
 import { NextPage } from "next";
+import * as React from "react";
+
 const MyGarage: NextPage = () => {
   return (
     <main>
-      <LogoBikeistaButton />
-      <ProfileIcon />
-      <Introduction />
+      <Box sx={{ display: "flex" }}>
+        <BikeistaBottenItemList />
+        <Page />
+      </Box>
     </main>
   );
 };

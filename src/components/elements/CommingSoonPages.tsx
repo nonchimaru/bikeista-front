@@ -13,45 +13,54 @@ const M_PLUS_Rounded_1c500 = M_PLUS_Rounded_1c({
 });
 
 /**
- * ロゴを表示させるコンポーネント
+ * ページを表示させるコンポーネント
  */
-export const CommingSoonPages: React.FC = ({}) => {
+export const CommingSoonPages: React.FC = () => {
   return (
     <Box
       sx={{
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
-        flexDirection: "row",
         alignItems: "center",
-        overflow: "hidden", // ページ全体にスクロールが生じないように設定
+        height: "100vh",
+        marginLeft: "7%",
       }}
     >
-      <Box sx={{ marginRight: "8%" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "row",
+          alignItems: "center",
+          overflow: "hidden", // ページ全体にスクロールが生じないように設定
+        }}
+      >
         <Image
           src="/BrokenBike.png"
           width={500}
           height={500}
           alt="BrokenBike.png"
         />
-      </Box>
-      <Box>
-        <Typography variant="h2" className={Kaisei_Decol700.className}>
-          Comming Soon...
-        </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            marginTop: "15%",
-          }}
-        >
-          <Typography variant="h5" className={M_PLUS_Rounded_1c500.className}>
-            ただいま準備中です
+        <Box>
+          <Typography variant="h2" className={Kaisei_Decol700.className}>
+            Comming Soon...
           </Typography>
-          <Typography variant="h5" className={M_PLUS_Rounded_1c500.className}>
-            完成までしばらくお待ち下さい
-          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              marginTop: "15%",
+            }}
+          >
+            <Typography variant="h5" className={M_PLUS_Rounded_1c500.className}>
+              ただいま準備中です
+            </Typography>
+            <Typography variant="h5" className={M_PLUS_Rounded_1c500.className}>
+              完成までしばらくお待ち下さい
+            </Typography>
+          </Box>
         </Box>
       </Box>
     </Box>

@@ -1,12 +1,15 @@
 import { NextPage } from "next";
 import { CommingSoonPages } from "@/components/elements/CommingSoonPages";
-import { LogoBikeistaButton } from "@/components/elements/LogoBikeistaButton";
+import { BikeistaBottenItemList } from "@/components/elements/BikeistaBottenItemList";
+import { Box } from "@mui/material";
 
 const LetterPost: NextPage = () => {
   return (
-    <main>
-      <LogoBikeistaButton />
-      <CommingSoonPages />
+    <main style={{ overflow: "hidden", height: "90vh" }}>
+      <Box sx={{ display: "flex" }}>
+        <BikeistaBottenItemList />
+        <CommingSoonPages />
+      </Box>
     </main>
   );
 };
