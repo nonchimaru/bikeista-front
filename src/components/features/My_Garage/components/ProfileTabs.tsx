@@ -17,6 +17,9 @@ interface TabPanelProps {
   value: number;
 }
 
+/**
+ * ProfileIconコンポーネントのPropsの型定義
+ */
 export const CustomTabPanel: React.FC<TabPanelProps> = (props) => {
   const { children, value, index, ...other } = props;
 
@@ -37,6 +40,9 @@ export const CustomTabPanel: React.FC<TabPanelProps> = (props) => {
   );
 };
 
+/**
+ * ProfileTabsを表示させるコンポーネント
+ */
 export const ProfileTabs: React.FC = () => {
   const [value, setValue] = useState(0);
 
@@ -45,7 +51,7 @@ export const ProfileTabs: React.FC = () => {
   };
 
   return (
-    <Box sx={{ width: "200%" }}>
+    <Box sx={{ width: "225%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}

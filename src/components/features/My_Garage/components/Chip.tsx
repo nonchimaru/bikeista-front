@@ -4,11 +4,7 @@ import Stack from "@mui/material/Stack";
 /**
  * ChipsコンポーネントのPropsの型定義
  */
-type ChipsProps = {
-  /**
-   * チップの表示サイズ
-   */
-};
+type ChipsProps = {};
 
 /**
  * チップを表示させるコンポーネント
