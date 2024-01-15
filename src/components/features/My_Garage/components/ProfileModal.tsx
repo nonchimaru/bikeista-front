@@ -10,18 +10,23 @@ import { ProfileIcon } from "./ProfileIcon";
 import { UploadIcon } from "./UploadIcon";
 import { Backdrop, TextField } from "@mui/material";
 import { EditIntroduction } from "./EditIntroduction";
+import { SelectChipsHONDA } from "./SelectChipsHONDA";
+import { SelectChipsYAMAHA } from "./SelectChipsYAMAHA";
+import { SelectChipsSuzuki } from "./SelectChipsSuzuki";
+import { SelectChipsKawasaki } from "./SelectChipsKawasaki";
 
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 1000,
+  width: 1100,
   height: 700,
   bgcolor: "background.paper",
   border: "1px solid #000",
   boxShadow: 24,
   p: 4,
+  overflowY: "auto", // 上下のスクロールを可能にする
 };
 
 export const ProfileModal: React.FC = ({}) => {
@@ -62,15 +67,17 @@ export const ProfileModal: React.FC = ({}) => {
                 sx={{ fontSize: "35px", marginRight: "10px", color: "black" }}
               />
             </button>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              マイガレージ編集
-            </Typography>
+            <Box sx={{ marginTop: "0.5%" }}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                マイガレージ編集
+              </Typography>
+            </Box>
             <SaveAltIcon
-              sx={{ fontSize: "40px", marginLeft: "700px", color: "black" }}
+              sx={{ fontSize: "40px", marginLeft: "830px", color: "black" }}
             />
           </Box>
           <Typography id="modal-modal-description">
-            <Box sx={{ display: "flex" }}>
+            <Box sx={{ display: "flex", marginTop: "5%" }}>
               <Box
                 sx={{
                   display: "flex",
@@ -96,13 +103,20 @@ export const ProfileModal: React.FC = ({}) => {
                 <TextField label="名前" style={{ width: "70%" }} />
               </Box>
             </Box>
+            <Box sx={{ marginTop: "3%" }}>
+              チップ選択
+              <SelectChipsHONDA />
+              <SelectChipsYAMAHA />
+              <SelectChipsSuzuki />
+              <SelectChipsKawasaki />
+            </Box>
+
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
                 gap: "50px",
                 justifyContent: "center",
-                alignItems: "center",
                 marginTop: "50px",
               }}
             >

@@ -26,8 +26,10 @@ export const EditIntroduction: React.FC = ({}) => {
           self-introduction
           multiline
           rows={4}
+          maxRows={4} // 最大行数を指定
           value={textValue}
           onChange={handleTextChange}
+          inputProps={{ maxLength: 180 }} // 最大文字数を指定
         />
       </div>
     </Box>
