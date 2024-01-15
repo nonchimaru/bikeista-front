@@ -18,7 +18,7 @@ interface TabPanelProps {
 }
 
 /**
- * ProfileIconコンポーネントのPropsの型定義
+ * ProfileTabsコンポーネントのPropsの型定義
  */
 export const CustomTabPanel: React.FC<TabPanelProps> = (props) => {
   const { children, value, index, ...other } = props;

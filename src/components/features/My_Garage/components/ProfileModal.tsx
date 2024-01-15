@@ -110,7 +110,6 @@ export const ProfileModal: React.FC = ({}) => {
               <SelectChipsSuzuki />
               <SelectChipsKawasaki />
             </Box>
-
             <Box
               sx={{
                 display: "flex",
