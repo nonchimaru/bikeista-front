@@ -26,7 +26,7 @@ const style = {
   border: "1px solid #000",
   boxShadow: 24,
   p: 4,
-  overflowY: "auto", // 上下のスクロールを可能にする
+  //overflowY: "auto", // 上下のスクロールを可能にする
 };
 
 export const ProfileModal: React.FC = ({}) => {
@@ -77,7 +77,7 @@ export const ProfileModal: React.FC = ({}) => {
             />
           </Box>
           <Typography id="modal-modal-description">
-            <Box sx={{ display: "flex", marginTop: "5%" }}>
+            <Box sx={{ display: "flex", marginTop: "2%" }}>
               <Box
                 sx={{
                   display: "flex",

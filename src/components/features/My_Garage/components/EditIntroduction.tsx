@@ -13,7 +13,7 @@ export const EditIntroduction: React.FC = ({}) => {
     <Box
       component="form"
       sx={{
-        "& .MuiTextField-root": { m: 0, width: "101ch" },
+        "& .MuiTextField-root": { m: 0, width: 1100 },
       }}
       noValidate
       autoComplete="off"
