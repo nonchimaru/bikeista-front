@@ -21,7 +21,7 @@ export const LogoBikeistaButton: React.FC<LogoBikeistaButtonProps> = ({
   height = 90,
 }) => {
   return (
-    <Box sx={{ marginTop: "2%", marginLeft: "2%" }}>
+    <Box>
       <Link href="/">
         <Image
           src="/OriginalOnTransparent.png"
