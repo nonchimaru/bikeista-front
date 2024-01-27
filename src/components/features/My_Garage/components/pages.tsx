@@ -44,7 +44,8 @@ export const Page: React.FC = ({}) => {
   const [profileInfo, setProfileInfo] = useState<User[]>([]);
 
   const fetchProfileInfo = async (): Promise<void> => {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const fetchProfileEndopoint = "https://jsonplaceholder.typicode.com/users";
+    const response = await fetch(fetchProfileEndopoint);
     const json = await response.json();
     setProfileInfo(json);
   };
