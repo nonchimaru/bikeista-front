@@ -7,8 +7,23 @@ import { Introduction } from "./Introduction";
 import { ProfileTabs } from "./ProfileTabs";
 import { Horizon } from "./Horizon";
 import { ProfileModal } from "./ProfileModal";
+import { log } from "console";
 
 export const Page: React.FC = ({}) => {
+  function logMovies() {
+    return fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((movies) => {
+        return movies;
+      });
+  }
+  const profileInfo = logMovies();
+  console.log(profileInfo[0]);
+  function test(n: number) {
+    return 1 + n;
+  }
+  const v = test(100);
+  console.log(v);
   return (
     <Box
       sx={{
@@ -30,9 +45,9 @@ export const Page: React.FC = ({}) => {
       </Box>
       <Box sx={{ display: "flex" }}>
         <ProfileIcon width={100} height={100} />
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Name />
-        </Box>
+        {/* <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Name name={profileInfo[0].name} />
+        </Box> */}
       </Box>
       <Box sx={{ display: "flex", marginTop: "3%", marginLeft: "-5%" }}>
         <SocialConnection />
