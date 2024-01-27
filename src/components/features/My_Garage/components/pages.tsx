@@ -8,9 +8,6 @@ import { Introduction } from "./Introduction";
 import { ProfileTabs } from "./ProfileTabs";
 import { Horizon } from "./Horizon";
 import { ProfileModal } from "./ProfileModal";
-import { log } from "console";
-import { promises } from "dns";
-import { userInfo } from "os";
 
 // ユーザーの住所情報の型
 type Address = {
