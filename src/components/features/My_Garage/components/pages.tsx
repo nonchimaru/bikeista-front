@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { ProfileIcon } from "./ProfileIcon";
 import { Name } from "./Name";
@@ -8,22 +9,57 @@ import { ProfileTabs } from "./ProfileTabs";
 import { Horizon } from "./Horizon";
 import { ProfileModal } from "./ProfileModal";
 import { log } from "console";
+import { promises } from "dns";
+import { userInfo } from "os";
+
+// ユーザーの住所情報の型
+type Address = {
+  street: string;
+  suite: string;
+  city: string;
+  zipcode: string;
+  geo: {
+    lat: string;
+    lng: string;
+  };
+};
+
+// ユーザーの会社情報の型
+type Company = {
+  name: string;
+  catchPhrase: string;
+  bs: string;
+};
+
+// ユーザー情報全体を表す型
+export type User = {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: Address;
+  phone: string;
+  website: string;
+  company: Company;
+};
 
 export const Page: React.FC = ({}) => {
-  function logMovies() {
-    return fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((movies) => {
-        return movies;
-      });
+  const [profileInfo, setProfileInfo] = useState<User[]>([]);
+
+  const fetchProfileInfo = async (): Promise<void> => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const json = await response.json();
+    setProfileInfo(json);
+  };
+
+  useEffect(() => {
+    fetchProfileInfo();
+  }, []);
+
+  if (!profileInfo || profileInfo.length === 0) {
+    return <div>データ取得中</div>;
   }
-  const profileInfo = logMovies();
-  console.log(profileInfo[0]);
-  function test(n: number) {
-    return 1 + n;
-  }
-  const v = test(100);
-  console.log(v);
+
   return (
     <Box
       sx={{
@@ -45,9 +81,9 @@ export const Page: React.FC = ({}) => {
       </Box>
       <Box sx={{ display: "flex" }}>
         <ProfileIcon width={100} height={100} />
-        {/* <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Name name={profileInfo[0].name} />
-        </Box> */}
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Name userName={profileInfo[0].name} />
+        </Box>
       </Box>
       <Box sx={{ display: "flex", marginTop: "3%", marginLeft: "-5%" }}>
         <SocialConnection />
