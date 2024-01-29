@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { ProfileIcon } from "./ProfileIcon";
 import { Name } from "./Name";
@@ -8,7 +9,55 @@ import { ProfileTabs } from "./ProfileTabs";
 import { Horizon } from "./Horizon";
 import { ProfileModal } from "./ProfileModal";
 
+// ユーザーの住所情報の型
+type Address = {
+  street: string;
+  suite: string;
+  city: string;
+  zipcode: string;
+  geo: {
+    lat: string;
+    lng: string;
+  };
+};
+
+// ユーザーの会社情報の型
+type Company = {
+  name: string;
+  catchPhrase: string;
+  bs: string;
+};
+
+// ユーザー情報全体を表す型
+export type User = {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: Address;
+  phone: string;
+  website: string;
+  company: Company;
+};
+
 export const Page: React.FC = ({}) => {
+  const [profileInfo, setProfileInfo] = useState<User[]>([]);
+
+  const fetchProfileInfo = async (): Promise<void> => {
+    const fetchProfileEndopoint = "https://jsonplaceholder.typicode.com/users";
+    const response = await fetch(fetchProfileEndopoint);
+    const json = await response.json();
+    setProfileInfo(json);
+  };
+
+  useEffect(() => {
+    fetchProfileInfo();
+  }, []);
+
+  if (!profileInfo || profileInfo.length === 0) {
+    return <div>データ取得中</div>;
+  }
+
   return (
     <Box
       sx={{
@@ -31,7 +80,7 @@ export const Page: React.FC = ({}) => {
       <Box sx={{ display: "flex" }}>
         <ProfileIcon width={100} height={100} />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Name />
+          <Name userName={profileInfo[0].name} />
         </Box>
       </Box>
       <Box sx={{ display: "flex", marginTop: "3%", marginLeft: "-5%" }}>

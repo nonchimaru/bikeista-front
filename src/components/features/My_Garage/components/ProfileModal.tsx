@@ -26,7 +26,7 @@ const style = {
   border: "1px solid #000",
   boxShadow: 24,
   p: 4,
-  //overflowY: "auto", // 上下のスクロールを可能にする
+  overflowY: "auto", // 上下のスクロールを可能にする
 };
 
 export const ProfileModal: React.FC = ({}) => {
