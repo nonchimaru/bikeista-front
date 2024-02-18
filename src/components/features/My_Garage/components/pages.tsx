@@ -80,6 +80,7 @@ export const Page: React.FC = ({}) => {
       <Box sx={{ display: "flex" }}>
         <ProfileIcon width={100} height={100} />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Name userID={profileInfo[0].email} />
           <Name userName={profileInfo[0].name} />
         </Box>
       </Box>
