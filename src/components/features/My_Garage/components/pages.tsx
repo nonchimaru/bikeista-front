@@ -80,7 +80,7 @@ export const Page: React.FC = ({}) => {
       <Box sx={{ display: "flex" }}>
         <ProfileIcon width={100} height={100} />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Name userName={profileInfo[0].name} />
+          <Name userId={profileInfo[0].email} userName={profileInfo[0].name} />
         </Box>
       </Box>
       <Box sx={{ display: "flex", marginTop: "3%", marginLeft: "-5%" }}>

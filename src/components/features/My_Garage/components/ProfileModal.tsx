@@ -127,3 +127,4 @@ export const ProfileModal: React.FC = ({}) => {
     </div>
   );
 };
+export { SaveAltIcon };
