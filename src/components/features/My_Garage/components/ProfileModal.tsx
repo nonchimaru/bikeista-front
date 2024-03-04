@@ -10,10 +10,7 @@ import { ProfileIcon } from "./ProfileIcon";
 import { UploadIcon } from "./UploadIcon";
 import { Backdrop, TextField } from "@mui/material";
 import { EditIntroduction } from "./EditIntroduction";
-import { SelectChipsHONDA } from "./SelectChipsHONDA";
-import { SelectChipsYAMAHA } from "./SelectChipsYAMAHA";
-import { SelectChipsSuzuki } from "./SelectChipsSuzuki";
-import { SelectChipsKawasaki } from "./SelectChipsKawasaki";
+import CarModelSelectChips from "./CarModelSelectChips";
 
 const style = {
   position: "absolute" as "absolute",
@@ -105,10 +102,7 @@ export const ProfileModal: React.FC = ({}) => {
             </Box>
             <Box sx={{ marginTop: "3%" }}>
               チップ選択
-              <SelectChipsHONDA />
-              <SelectChipsYAMAHA />
-              <SelectChipsSuzuki />
-              <SelectChipsKawasaki />
+              <CarModelSelectChips />
             </Box>
             <Box
               sx={{
