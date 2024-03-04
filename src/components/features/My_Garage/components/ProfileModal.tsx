@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -26,6 +27,13 @@ const style = {
   overflowY: "auto", // 上下のスクロールを可能にする
 };
 
+// 車種全体を表す型
+export type CarModel = {
+  id: number;
+  car_model: string;
+  manufactre: string;
+};
+
 export const ProfileModal: React.FC = ({}) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -35,6 +43,25 @@ export const ProfileModal: React.FC = ({}) => {
     // クリックがモーダル内の要素から起こった場合、モーダルを閉じないようにする
     event.stopPropagation();
   };
+
+  // CarModelSelectChips
+  const [CarModelSelectChip, setCarModelSelectChip] = useState<CarModel[]>([]);
+
+  const fetchCarModelSelectChips = async (): Promise<void> => {
+    const fetchCarModelEndopoint = "http://localhost/api/car_models";
+    const response = await fetch(fetchCarModelEndopoint);
+    const json = await response.json();
+    setCarModelSelectChip(json);
+  };
+
+  useEffect(() => {
+    fetchCarModelSelectChips();
+  }, []);
+
+  if (!CarModelSelectChip || CarModelSelectChip.length === 0) {
+    return <div>データ取得中</div>;
+  }
+
   return (
     <div>
       <Button
