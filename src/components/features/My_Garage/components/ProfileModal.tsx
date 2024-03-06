@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -10,10 +11,7 @@ import { ProfileIcon } from "./ProfileIcon";
 import { UploadIcon } from "./UploadIcon";
 import { Backdrop, TextField } from "@mui/material";
 import { EditIntroduction } from "./EditIntroduction";
-import { SelectChipsHONDA } from "./SelectChipsHONDA";
-import { SelectChipsYAMAHA } from "./SelectChipsYAMAHA";
-import { SelectChipsSuzuki } from "./SelectChipsSuzuki";
-import { SelectChipsKawasaki } from "./SelectChipsKawasaki";
+import { CarModelSelectChips } from "./CarModelSelectChips";
 
 const style = {
   position: "absolute" as "absolute",
@@ -29,6 +27,13 @@ const style = {
   overflowY: "auto", // 上下のスクロールを可能にする
 };
 
+// 車種全体を表す型
+export type CarModel = {
+  id: number;
+  car_model: string;
+  manufacture: string;
+};
+
 export const ProfileModal: React.FC = ({}) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -38,6 +43,24 @@ export const ProfileModal: React.FC = ({}) => {
     // クリックがモーダル内の要素から起こった場合、モーダルを閉じないようにする
     event.stopPropagation();
   };
+
+  // CarModelSelectChips
+  const [carModelSelectChip, setCarModelSelectChip] = useState<CarModel[]>([]);
+  const fetchCarModelSelectChips = async (): Promise<void> => {
+    const fetchCarModelEndopoint = "http://localhost/api/car_models";
+    const response = await fetch(fetchCarModelEndopoint);
+    const json = await response.json();
+    setCarModelSelectChip(json.data);
+  };
+  console.log(carModelSelectChip);
+  useEffect(() => {
+    fetchCarModelSelectChips();
+  }, []);
+
+  if (!carModelSelectChip || carModelSelectChip.length === 0) {
+    return <div>データ取得中</div>;
+  }
+
   return (
     <div>
       <Button
@@ -105,10 +128,7 @@ export const ProfileModal: React.FC = ({}) => {
             </Box>
             <Box sx={{ marginTop: "3%" }}>
               チップ選択
-              <SelectChipsHONDA />
-              <SelectChipsYAMAHA />
-              <SelectChipsSuzuki />
-              <SelectChipsKawasaki />
+              <CarModelSelectChips carModelSelectChip={carModelSelectChip} />
             </Box>
             <Box
               sx={{
