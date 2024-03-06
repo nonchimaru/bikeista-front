@@ -11,7 +11,7 @@ import { ProfileIcon } from "./ProfileIcon";
 import { UploadIcon } from "./UploadIcon";
 import { Backdrop, TextField } from "@mui/material";
 import { EditIntroduction } from "./EditIntroduction";
-import CarModelSelectChips from "./CarModelSelectChips";
+import { CarModelSelectChips } from "./CarModelSelectChips";
 
 const style = {
   position: "absolute" as "absolute",
@@ -31,7 +31,7 @@ const style = {
 export type CarModel = {
   id: number;
   car_model: string;
-  manufactre: string;
+  manufacture: string;
 };
 
 export const ProfileModal: React.FC = ({}) => {
@@ -45,20 +45,19 @@ export const ProfileModal: React.FC = ({}) => {
   };
 
   // CarModelSelectChips
-  const [CarModelSelectChip, setCarModelSelectChip] = useState<CarModel[]>([]);
-
+  const [carModelSelectChip, setCarModelSelectChip] = useState<CarModel[]>([]);
   const fetchCarModelSelectChips = async (): Promise<void> => {
     const fetchCarModelEndopoint = "http://localhost/api/car_models";
     const response = await fetch(fetchCarModelEndopoint);
     const json = await response.json();
-    setCarModelSelectChip(json);
+    setCarModelSelectChip(json.data);
   };
-
+  console.log(carModelSelectChip);
   useEffect(() => {
     fetchCarModelSelectChips();
   }, []);
 
-  if (!CarModelSelectChip || CarModelSelectChip.length === 0) {
+  if (!carModelSelectChip || carModelSelectChip.length === 0) {
     return <div>データ取得中</div>;
   }
 
@@ -129,7 +128,7 @@ export const ProfileModal: React.FC = ({}) => {
             </Box>
             <Box sx={{ marginTop: "3%" }}>
               チップ選択
-              <CarModelSelectChips />
+              <CarModelSelectChips carModelSelectChip={carModelSelectChip} />
             </Box>
             <Box
               sx={{

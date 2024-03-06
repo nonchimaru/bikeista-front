@@ -1,16 +1,17 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import { CarModel } from "./ProfileModal";
 
 const columns: GridColDef[] = [
   {
-    field: "Manufacture",
+    field: "manufacture",
     headerName: "メーカー",
     width: 150,
     editable: false,
   },
   {
-    field: "CarModel",
+    field: "car_model",
     headerName: "車種",
     width: 200,
     editable: false,
@@ -29,11 +30,17 @@ const rows = [
   { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
 ];
 
-export default function CarModelSelectChips() {
+interface CarModelSelectChipsProps {
+  carModelSelectChip: CarModel[];
+}
+
+export const CarModelSelectChips: React.FC<CarModelSelectChipsProps> = (
+  props
+) => {
   return (
     <Box sx={{ height: 400, width: "100%" }}>
       <DataGrid
-        rows={rows}
+        rows={props.carModelSelectChip}
         columns={columns}
         initialState={{
           pagination: {
@@ -48,4 +55,4 @@ export default function CarModelSelectChips() {
       />
     </Box>
   );
-}
+};
