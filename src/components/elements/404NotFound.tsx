@@ -21,12 +21,14 @@ export const NotFound: React.FC = ({}) => {
         flexDirection: "row",
         alignItems: "center",
         height: "100vh",
+        marginTop: "4%",
+        marginLeft: "-5%",
       }}
     >
       <Image
         src="/NayamiGirlTomei.png"
-        width={400}
-        height={400}
+        width={500}
+        height={500}
         alt="nayami_girl"
       />
       <Box>
@@ -37,10 +39,10 @@ export const NotFound: React.FC = ({}) => {
             alignItems: "center",
           }}
         >
-          <Typography variant="h2" className={Kaisei_Decol700.className}>
+          <Typography variant="h1" className={Kaisei_Decol700.className}>
             404
           </Typography>
-          <Typography variant="h4" className={Kaisei_Decol700.className}>
+          <Typography variant="h3" className={Kaisei_Decol700.className}>
             NOT FOUND
           </Typography>
         </Box>
