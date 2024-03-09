@@ -4,7 +4,8 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import { M_PLUS_Rounded_1c } from "next/font/google";
 import { useState } from "react";
-import axis from "axios";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const Container = styled("div")({
   display: "flex",
@@ -16,7 +17,7 @@ const Container = styled("div")({
 
 const LoginCard = styled("div")({
   backgroundColor: "#fff",
-  padding: "100px 80px", // 上下に10ピクセル、左右に20ピクセルの余白
+  padding: "100px 80px",
   borderRadius: "10px",
   boxShadow: "0 0 10px rgba(0,0,0,0.1)",
 });
@@ -35,17 +36,18 @@ const Login: NextPage = () => {
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
+  const router = useRouter();
   const handleSubmit = () => {
-    axis
-      .post("http://localhost/api/iogin", {
+    axios
+      .post("http://localhost/api/login", {
         email: email,
         password: password,
       })
       .then((red) => {
-        // ここで返って来た結果に対して処理を行う
+        router.push("/");
       })
       .catch((error) => {
-        console.log(error);
+        alert("ログイン認証に失敗しました");
       });
   };
 
