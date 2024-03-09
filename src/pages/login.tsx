@@ -4,6 +4,7 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import { M_PLUS_Rounded_1c } from "next/font/google";
 import { useState } from "react";
+import axis from "axios";
 
 const Container = styled("div")({
   display: "flex",
@@ -34,7 +35,19 @@ const Login: NextPage = () => {
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    axis
+      .post("http://localhost/api/iogin", {
+        email: email,
+        password: password,
+      })
+      .then((red) => {
+        // ここで返って来た結果に対して処理を行う
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <main>
