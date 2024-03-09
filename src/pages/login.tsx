@@ -3,6 +3,7 @@ import React from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import { M_PLUS_Rounded_1c } from "next/font/google";
+import { useState } from "react";
 
 const Container = styled("div")({
   display: "flex",
@@ -25,6 +26,16 @@ const M_PLUS_Rounded_1c500 = M_PLUS_Rounded_1c({
 });
 
 const Login: NextPage = () => {
+  const [email, setEmail] = useState("");
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+  const [password, setPassword] = useState("");
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+  const handleSubmit = () => {};
+
   return (
     <main>
       <Container>
@@ -37,7 +48,13 @@ const Login: NextPage = () => {
             >
               メールアドレス
             </Typography>
-            <TextField variant="outlined" margin="normal" fullWidth />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              value={email}
+              onChange={handleEmailChange}
+            />
           </Box>
           <Box>
             <Typography
@@ -52,6 +69,8 @@ const Login: NextPage = () => {
               margin="normal"
               fullWidth
               type="password"
+              value={password}
+              onChange={handlePasswordChange}
             />
           </Box>
           <Button
@@ -59,6 +78,7 @@ const Login: NextPage = () => {
             color="primary"
             fullWidth
             sx={{ marginTop: "8%" }}
+            onClick={handleSubmit}
           >
             Login
           </Button>
