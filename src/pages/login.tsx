@@ -33,7 +33,7 @@ const Login: NextPage = () => {
             <Typography
               variant="body1"
               className={M_PLUS_Rounded_1c500.className}
-              sx={{ marginTop: "%", marginBottom: "-4%" }}
+              sx={{ marginBottom: "-4%", width: "400px" }}
             >
               メールアドレス
             </Typography>
@@ -62,7 +62,11 @@ const Login: NextPage = () => {
           >
             Login
           </Button>
-          <Button variant="text" sx={{ display: "block", marginTop: "20%" }}>
+          <Button
+            variant="text"
+            fullWidth
+            sx={{ display: "block", marginTop: "20%" }}
+          >
             新規会員登録の方はこちら
           </Button>
         </LoginCard>
