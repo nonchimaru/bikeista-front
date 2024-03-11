@@ -27,7 +27,7 @@ const M_PLUS_Rounded_1c500 = M_PLUS_Rounded_1c({
   preload: false,
 });
 
-const Login: NextPage = () => {
+const SignUp: NextPage = () => {
   const [email, setEmail] = useState("");
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -47,7 +47,7 @@ const Login: NextPage = () => {
         router.push("/");
       })
       .catch((error) => {
-        alert("会員登録に失敗しました");
+        alert("ログイン認証に失敗しました");
       });
   };
 
@@ -95,15 +95,15 @@ const Login: NextPage = () => {
             sx={{ marginTop: "8%" }}
             onClick={handleSubmit}
           >
-            Login
+            Signup
           </Button>
           <Button
             variant="text"
             fullWidth
-            href="signup"
+            href="login"
             sx={{ display: "block", marginTop: "20%", textAlign: "center" }}
           >
-            新規会員登録はこちら
+            ログインはこちら
           </Button>
         </LoginCard>
       </Container>
@@ -111,4 +111,4 @@ const Login: NextPage = () => {
   );
 };
 
-export default Login;
+export default SignUp;
