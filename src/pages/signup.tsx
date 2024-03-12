@@ -32,12 +32,19 @@ const SignUp: NextPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const [error, setError] = useState("");
 
   /**
    * フォームに入力された名前をセット
    */
-  const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
+  const handleChangeName = (event: { target: { value: any } }) => {
+    const inputValue = event.target.value;
+    if (inputValue.length <= 20) {
+      setName(inputValue);
+      setError(""); // ここでエラーメッセージをクリア
+    } else {
+      setError("20文字以上は設定できません"); // ここでエラーメッセージをセット
+    }
   };
 
   /**
@@ -95,7 +102,9 @@ const SignUp: NextPage = () => {
               margin="normal"
               fullWidth
               value={name}
-              onChange={handleChangeName}
+              onChange={handleChangeName} // ここでhandleChangeName関数を渡す
+              error={error !== ""} // ここでerrorの状態によってエラーを表示するかどうかを決定
+              helperText={error} // ここでエラーメッセージを表示
             />
           </Box>
           <Box>
