@@ -47,7 +47,7 @@ const Login: NextPage = () => {
         router.push("/");
       })
       .catch((error) => {
-        alert("会員登録に失敗しました");
+        alert("ログインに失敗しました");
       });
   };
 
@@ -55,11 +55,18 @@ const Login: NextPage = () => {
     <main>
       <Container>
         <LoginCard>
+          <Typography
+            variant="h6"
+            className={M_PLUS_Rounded_1c500.className}
+            sx={{ width: "400px" }}
+          >
+            ログイン
+          </Typography>
           <Box>
             <Typography
               variant="body1"
               className={M_PLUS_Rounded_1c500.className}
-              sx={{ marginBottom: "-4%", width: "400px" }}
+              sx={{ marginBottom: "-4%", width: "400px", marginTop: "8%" }}
             >
               メールアドレス
             </Typography>
@@ -102,8 +109,9 @@ const Login: NextPage = () => {
             fullWidth
             href="/signup"
             sx={{ display: "block", marginTop: "20%", textAlign: "center" }}
+            className={M_PLUS_Rounded_1c500.className}
           >
-            新規会員登録はこちら
+            アカウント作成はこちら
           </Button>
         </LoginCard>
       </Container>
