@@ -54,10 +54,13 @@ const SignUp: NextPage = () => {
     setPassword(event.target.value);
   };
 
+  const [isLoading, setIsLoading] = useState(false);
+
   /**
    * アカウント登録
    */
   const handleSubmit = () => {
+    setIsLoading(true); // ローディング状態を設定
     axios
       .post("http://localhost/api/register", {
         name: name,
@@ -69,6 +72,9 @@ const SignUp: NextPage = () => {
       })
       .catch((error) => {
         alert("会員登録に失敗しました");
+      })
+      .finally(() => {
+        setIsLoading(false); // 処理が完了したらローディング状態を解除
       });
   };
 
@@ -131,8 +137,9 @@ const SignUp: NextPage = () => {
             fullWidth
             sx={{ marginTop: "8%" }}
             onClick={handleSubmit}
+            disabled={isLoading} // 登録処理中はボタンを無効化
           >
-            Signup
+            {isLoading ? "Loading..." : "Signup"}
           </Button>
           <Button
             variant="text"
