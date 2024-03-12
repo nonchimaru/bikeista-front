@@ -100,7 +100,7 @@ const Login: NextPage = () => {
           <Button
             variant="text"
             fullWidth
-            href="signup"
+            href="/signup"
             sx={{ display: "block", marginTop: "20%", textAlign: "center" }}
           >
             新規会員登録はこちら

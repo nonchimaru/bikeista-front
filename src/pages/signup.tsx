@@ -28,26 +28,47 @@ const M_PLUS_Rounded_1c500 = M_PLUS_Rounded_1c({
 });
 
 const SignUp: NextPage = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+
+  /**
+   * フォームに入力された名前をセット
+   */
+  const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+  };
+
+  /**
+   * フォームに入力されたメールアドレスをセット
+   */
+  const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
-  const [password, setPassword] = useState("");
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+  /**
+   * フォームに入力されたパスワードをセット
+   */
+  const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
-  const router = useRouter();
+
+  /**
+   * アカウント登録
+   */
   const handleSubmit = () => {
     axios
-      .post("http://localhost/api/login", {
+      .post("http://localhost/api/register", {
+        name: name,
         email: email,
         password: password,
       })
       .then((red) => {
-        router.push("/");
+        router.push("/login");
       })
       .catch((error) => {
-        alert("ログイン認証に失敗しました");
+        alert("会員登録に失敗しました");
       });
   };
 
@@ -61,6 +82,22 @@ const SignUp: NextPage = () => {
               className={M_PLUS_Rounded_1c500.className}
               sx={{ marginBottom: "-4%", width: "400px" }}
             >
+              名前
+            </Typography>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              value={name}
+              onChange={handleChangeName}
+            />
+          </Box>
+          <Box>
+            <Typography
+              variant="body1"
+              className={M_PLUS_Rounded_1c500.className}
+              sx={{ marginTop: "8%", marginBottom: "-4%", width: "400px" }}
+            >
               メールアドレス
             </Typography>
             <TextField
@@ -68,7 +105,7 @@ const SignUp: NextPage = () => {
               margin="normal"
               fullWidth
               value={email}
-              onChange={handleEmailChange}
+              onChange={handleChangeEmail}
             />
           </Box>
           <Box>
@@ -85,7 +122,7 @@ const SignUp: NextPage = () => {
               fullWidth
               type="password"
               value={password}
-              onChange={handlePasswordChange}
+              onChange={handleChangePassword}
             />
           </Box>
           <Button
