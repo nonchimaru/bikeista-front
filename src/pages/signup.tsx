@@ -78,7 +78,7 @@ const SignUp: NextPage = () => {
         router.push("/login");
       })
       .catch((error) => {
-        alert("会員登録に失敗しました");
+        alert("アカウント作成に失敗しました");
       })
       .finally(() => {
         setIsLoading(false); // 処理が完了したらローディング状態を解除
@@ -89,11 +89,18 @@ const SignUp: NextPage = () => {
     <main>
       <Container>
         <LoginCard>
+          <Typography
+            variant="h6"
+            className={M_PLUS_Rounded_1c500.className}
+            sx={{ width: "400px" }}
+          >
+            アカウント作成
+          </Typography>
           <Box>
             <Typography
               variant="body1"
               className={M_PLUS_Rounded_1c500.className}
-              sx={{ marginBottom: "-4%", width: "400px" }}
+              sx={{ marginBottom: "-4%", width: "400px", marginTop: "8%" }}
             >
               名前
             </Typography>
@@ -155,6 +162,7 @@ const SignUp: NextPage = () => {
             fullWidth
             href="login"
             sx={{ display: "block", marginTop: "20%", textAlign: "center" }}
+            className={M_PLUS_Rounded_1c500.className}
           >
             ログインはこちら
           </Button>
